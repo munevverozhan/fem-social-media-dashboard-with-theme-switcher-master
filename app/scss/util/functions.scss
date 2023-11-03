@@ -5,7 +5,4 @@
 	@return (math.div($pixels, $context)) * 1rem;       //* 1rem yazım kuralıdır.   math.div bölme işlemidir. Yani ; pixels/context işleminin sonucunu verir.
 }
 
-// eğer rem fonksiyonunu başka bir sass dosyasında kullanmak istersek;
-/* h1{
-    font-size: rem(30);
-} /*
+// eğer rem fonksiyonunu başka bir sass dosyasında kullanmak istersek; font-size : rem(sayisalDeger);   ayrıca @use kullanarak rem() fonk. nereden geldiğini belirtmek zorundayız.
