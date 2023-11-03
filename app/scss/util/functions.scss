@@ -1,0 +1,11 @@
+@use "sass:math";
+
+// Source: https://css-tricks.com/snippets/sass/px-to-em-functions/
+@function rem($pixels, $context: 16) {
+	@return (math.div($pixels, $context)) * 1rem;       //* 1rem yazım kuralıdır.   math.div bölme işlemidir. Yani ; pixels/context işleminin sonucunu verir.
+}
+
+// eğer rem fonksiyonunu başka bir sass dosyasında kullanmak istersek;
+/* h1{
+    font-size: rem(30);
+} /*
