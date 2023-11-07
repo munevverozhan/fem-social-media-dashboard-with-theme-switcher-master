@@ -1,12 +1,27 @@
 @use '../util' as *;
+
 .header {
-    @include breakpoint(large) {
+    margin-top: rem(36);
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint(medium) {
         display: flex;
         justify-content: space-between;
-
+        align-items: center;
     }
 
-    &__title {}
+    &__subtitle {
+        font-size: rem(14);
+        color: var(--dark-text1);
+        font-weight: 700;
+    }
 
-    &__toggle {}
+    &__title {
+        width: 100%;
+
+        @include breakpoint(medium) {
+            width: auto;
+        }
+    }
 }

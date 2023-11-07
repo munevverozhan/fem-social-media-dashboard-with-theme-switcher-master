@@ -1,20 +1,85 @@
 @use '../util' as *;
 
 .toggle {
+    display: grid;
     border: none;
+    grid-template-columns: 1fr rem(60) 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: rem(4.8) rem(12);
+    margin: 0;
 
-    &__wrapper {}
+    label {
+        font-size: rem(14);
+        align-self: center;
 
-    input[type="radio"] {}
+        &[for='dark'] {
+            grid-column: 1/2;
+            justify-self: end;
+        }
 
-    &__background {}
+        &[for="system"] {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            justify-self: center;
+            align-self: start;
+        }
 
-    &__button {
-        width: rem(16);
-        height: rem(16);
-        border-radius: 50%;
-        background-color: var(--toggle);
+        &[for="light"] {
+            grid-column: 3/4;
+        }
     }
 
-    label {}
+    &__wrapper {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        height: rem(24);
+        position: relative;
+
+    }
+
+    input[type="radio"] {
+        opacity: 0;
+        margin: 0 rem(-2) 0 rem(-2);
+        width: rem(20);
+        height: rem(24);
+
+        &:focus~.toggle__button {
+            border: rem(2) solid white;
+        }
+    }
+
+    &__background {
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        border-radius: rem(12);
+        overflow: hidden;
+        background: linear-gradient(225deg, var(--toggle-bg-end) 0%, var(--toggle-bg-start) 98.02%);
+        pointer-events: none;
+    }
+
+    &__button {
+        position: absolute;
+        left: rem(3);
+        top: rem(3);
+        right: 100%;
+        width: rem(18);
+        height: rem(18);
+        border-radius: 50%;
+        background-color: var(--dark-bg);
+        transform: all 150ms ease-in-out;
+    }
+
+    #light:checked~.toggle__button {
+        right: 3px;
+        left: calc(100% - 21px);
+    }
+
+    #system:checked~.toggle__button {
+        left: 50%;
+        right: auto;
+        translate: (-50%);
+    }
 }

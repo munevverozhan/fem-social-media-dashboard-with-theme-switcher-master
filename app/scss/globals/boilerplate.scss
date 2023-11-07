@@ -1,14 +1,18 @@
-html{
+html {
     font-size: 100%;
     box-sizing: border-box;
 }
 
-*, *::after,*::before {
+*,
+*::after,
+*::before {
     box-sizing: inherit;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
-    font-family: var(--font-inter);  //fonts.scss dosyasında tanımladığımız --font-inter değişkenine var() methodu ile eriştik. 
+    font-family: var(--font-inter); //fonts.scss dosyasında tanımladığımız --font-inter değişkenine var() methodu ile eriştik. 
+    background-color: var(--dark-bg);
+    color: var(--dark-text2);
 }
