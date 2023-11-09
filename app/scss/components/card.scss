@@ -1,4 +1,139 @@
 @use '../util' as *;
-.card{
-   padding: rem(20);
+
+.cards {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: rem(30);
+
+   @include breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   @include breakpoint(large) {
+      grid-template-columns: repeat(4, 1fr);
+   }
+}
+
+.card {
+   background-color: var(--background-color);
+   color: var(--card-text);
+   padding: rem(25);
+   text-align: center;
+   border-radius: rem(5);
+   position: relative;
+   overflow: hidden;
+   transition: background-color 150ms ease-in-out;
+   cursor: pointer;
+
+   &:hover {
+      background-color: var(--hover-color);
+   }
+
+   &--facebook {
+      border-top: rem(5) solid var(--facebook);
+   }
+
+   &--twitter {
+      border-top: rem(5) solid var(--twitter);
+   }
+
+   &--instagram {
+      padding-top: rem(30);
+
+      &::before {
+         content: '';
+         position: absolute;
+         display: block;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: rem(5);
+         background: linear-gradient(225deg, var(--instagram-end), var(--instagram-middle) 50.91%, var(--instagram-start) 100%);
+      }
+   }
+
+   &--youtube {
+      border-top: rem(5) solid var(--youtube);
+   }
+
+   &__platform {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: rem(28);
+   }
+
+   &__icon {
+
+      &--facebook {}
+
+      &--twitter {}
+
+      &--instagram {}
+
+      &--youtube {}
+   }
+
+   &__username {
+      margin-left: rem(8);
+      font-size: rem(12);
+      font-weight: 700;
+   }
+
+   &__followers {
+      margin-bottom: rem(25);
+
+   }
+
+   &__count {
+      color: var(--card-text);
+      letter-spacing: rem(-2);
+      line-height: 1;
+
+      &--big {
+         font-size: rem(56);
+         font-weight: 700;
+      }
+
+      &--small {
+         font-size: rem(32);
+         font-weight: 700;
+      }
+
+   }
+
+   &__label {
+      font-size: rem(12);
+      color: var(--label-text);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: rem(5);
+      margin-top: rem(4);
+   }
+
+   &__change {
+      font-size: rem(12);
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &--up {
+
+         color: var(--limegreen);
+      }
+
+      &--down {
+         color: var(--brightred);
+      }
+   }
+
+   &__number {
+      margin-left: rem(4);
+   }
+
+   &__info {
+      font-size: rem(14);
+      font-weight: 700;
+   }
 }
