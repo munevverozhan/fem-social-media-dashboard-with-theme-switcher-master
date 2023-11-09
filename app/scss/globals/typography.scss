@@ -16,6 +16,15 @@ h1 {
     }
 }
 
+h2 {
+    font-size: rem(24);
+    margin-bottom: rem(27);
+
+    @include breakpoint(large) {
+        margin-bottom: rem(29);
+    }
+}
+
 a,
 a:active,
 a:visited {
